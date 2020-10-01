@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar/AppBar'
-import { Toolbar, Button } from '@material-ui/core';
+import { Toolbar, Button, Drawer, makeStyles } from '@material-ui/core';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,16 +13,28 @@ import Contact from '../Contact/Contact';
 import NotFound from '../NotFound./NotFound';
 import Bulle from '../Bulle/Bulle';
 
+const useStyles = makeStyles({
+  App: {
+    boxSizing: 'border-box',
+    height: "100%",
+    paddingTop: "2rem",
+    textAlign: 'center'
+  },
+
+})
+
 function App() {
+  const classes = useStyles();
   return (
     <Router>
-      <div className="App">
-        <AppBar position="static">
-          <Toolbar>
-            <Button to="/" component={Link}>Home</Button>
-            <Button to="/about" component={Link}>About</Button>
-            <Button to="/contact" component={Link}>Contact</Button>
+      <div className={classes.App}>
+        <AppBar position="fixed" style={{ background: 'white' }}>
+          <Toolbar style={{ color: 'white' }} >
+            <Button to="/" component={Link} color="primary">Capsaudio</Button>
+            <Button to="/about" component={Link} color="secondary">About</Button>
+            <Button to="/contact" component={Link} color="secondary">Contact</Button>
           </Toolbar>
+          <Drawer></Drawer>
         </AppBar>
         <Switch>
           <Route exact path="/" >
@@ -42,7 +54,6 @@ function App() {
           </Route>
 
         </Switch>
-
       </div>
     </Router>
   );

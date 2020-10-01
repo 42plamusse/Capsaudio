@@ -27,8 +27,11 @@ const Bulle = () => {
     return (
         <div>
             <h1>{title}</h1>
-            <YoutubePlayer videoId={videoId} />
-            <div>
+            <div style={{ height: 280 }}>
+
+                <YoutubePlayer videoId={videoId} />
+            </div>
+            <div style={{ padding: 16 }}>
                 {text.split("\n").map((line, key) => {
                     return <p key={key}>{line}</p>
                 })}
