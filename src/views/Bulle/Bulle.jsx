@@ -23,6 +23,7 @@ const Bulle = () => {
         }
     ]
     const bulle = bulles[id - 1];
+    if (!bulle) return (<h1>*POP* fit la bulle.</h1>)
     const { videoId, text, title } = bulle;
     return (
         <div>
