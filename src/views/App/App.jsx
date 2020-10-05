@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     boxSizing: 'border-box',
     height: "100%",
     paddingTop: "2rem",
-    textAlign: 'center'
+    // textAlign: 'center'
   },
 
 })
@@ -30,9 +30,7 @@ function App() {
       <div className={classes.App}>
         <AppBar position="fixed" style={{ background: 'white' }}>
           <Toolbar style={{ color: 'white' }} >
-            <Button to="/" component={Link} color="primary">Capsaudio</Button>
-            <Button to="/about" component={Link} color="secondary">About</Button>
-            <Button to="/contact" component={Link} color="secondary">Contact</Button>
+            <Button to={{ pathname: "/" }} component={Link} color="primary">Capsaudio</Button>
           </Toolbar>
           <Drawer></Drawer>
         </AppBar>
