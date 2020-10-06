@@ -1,10 +1,12 @@
 import React from 'react';
 import YouTube from 'react-youtube';
+import { useMediaQuery } from "@material-ui/core"
 
 const YoutubePlayer = ({ videoId }) => {
+    const isMobile = useMediaQuery('(max-width:600px)', { noSsr: true })
     const opts = {
-        height: '290',
-        width: '290',
+        height: isMobile ? '158' : "400",
+        width: isMobile ? '280' : "711",
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             color: "white",
@@ -19,7 +21,12 @@ const YoutubePlayer = ({ videoId }) => {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();
     }
-    return <YouTube videoId={videoId} opts={opts} onReady={_onReady} />;
+    return (
+        <div style={{ height: isMobile ? '280' : "400", padding: "16px 0px 16px 0px" }}>
+
+            <YouTube videoId={videoId} opts={opts} onReady={_onReady} />
+        </div>
+    );
 
 }
 

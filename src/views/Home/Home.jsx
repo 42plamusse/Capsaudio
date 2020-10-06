@@ -4,6 +4,7 @@ import capsrouge from "../../assets/capsrouge.png"
 import capsbleu from "../../assets/capsbleu.png"
 import capsbleufonce from "../../assets/capsbleufonce.png"
 import capsjaune from "../../assets/capsjaune.png"
+import capsnoir from '../../assets/capsnoir.png'
 import Bulle from '../Bulle/Bulle';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -57,6 +58,12 @@ const Home = () => {
             title: "L'arc-en-ciel amoureux.",
             videoId: "3ymxO1SczeE",
             text: "Ta voix est violette. Odorante anesthésie de mon esprit. Aphrodisiaque qui secoue l‘oreiller de ma libido. Indigo, je te chante mon attirance sous un manteau de saison. Je vole la nuit. Guidé par l’étoile qui porte ton nom. Piégé par l’émoi de te sentir loin.\nTu me touches, mon corps s’enflamme d’un bleu sans suie. Je te touche, ton désir me réclame. Vert est son regard lorsqu’il me rend tout chose\nTu es la vie en mouvement, un rayon de soleil jauni par le ciel. Mes sens s’aiguisent et se bousculent, s’éveillent et se stimulent. Je m’aveugle en écoutant ton parfum. Tu es l’orange de mon matin, douce et acide. La rose de mon jardin, piquante et fragile. L’héroïne de mon cœur carmin, forte et gracile\nTu es la couleur de mes sentiments."
+        },
+        {
+            img: capsnoir,
+            title: "Le mal.",
+            videoId: "TLBB1xSLhJw",
+            text: "« Raaaaah ! » crie le son de ma gorge qui ne me revient. L'horizon sent la peine et la garde pour lui. Personne ne m'entend, Putain de douleur qui ne s'éteint pas. Désarmée, j'avance sur le champ de bataille. Accompagnée par le deuil qui comble le vide, rongée par la peur que mon coeur s’invalide. Je me mords. Je me drogue pour t'oublier lors de nuits glaciales. Je m'endors pour combler le coït de ces nuits nuptiales. Tu dévores mes rêves et j'en suis triste. Triste comme l'artiste qui se perd dans l'amour, Triste de te voir à chaque remous de paupière. Je me tords en réclamant ce que je n'ai pas. Je me meurs en oubliant ce que je suis. Silencieusement, j’avale tes doutes et j'en chie. Tu es mon mâle, je suis ton mal."
         }
     ]
 
@@ -72,7 +79,7 @@ const Home = () => {
         <div className={classes.root}>
             <div className={classes.container}>
                 <h1 style={{ fontWeight: 400, letterSpacing: "0.2vh" }}>BULLES DE PROUT</h1>
-                <CarouselProvider naturalSlideHeight={200} naturalSlideWidth={200} totalSlides={bulles.length}>
+                {/* <CarouselProvider naturalSlideHeight={200} naturalSlideWidth={200} totalSlides={bulles.length}>
                     <Slider>
                         {bulles.map((bulle, index) =>
                             <Slide onClick={() => handleBulleNav({ bulle })} key={index} index={index}>
@@ -82,14 +89,15 @@ const Home = () => {
                     </Slider>
                     <ButtonBack>Back</ButtonBack>
                     <ButtonNext>Next</ButtonNext>
-                </CarouselProvider>
-                {/* <div>
+                </CarouselProvider> */}
+                <div>
                     <BubbleButton bulle={bulles[0]} picture={capsrouge} />
                     <BubbleButton bulle={bulles[1]} picture={capsbleu} />
                     <BubbleButton bulle={bulles[2]} picture={capsbleufonce} />
                     <BubbleButton bulle={bulles[3]} picture={capsjaune} />
-                </div> */}
-                <Collapse in={bulle} timeout={1500}>
+                    <BubbleButton bulle={bulles[4]} picture={capsnoir} />
+                </div>
+                <Collapse in={!!bulle} timeout={1500}>
                     {
                         bulle ? <Bulle bulle={bulle} /> : null
                     }
