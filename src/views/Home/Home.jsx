@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, makeStyles, Collapse, Fade, Grow, fade } from '@material-ui/core';
+import { Button, makeStyles, Collapse, Fade, Grow, fade, useMediaQuery } from '@material-ui/core';
 import capsrouge from "../../assets/capsrouge.png"
 import capsbleu from "../../assets/capsbleu.png"
 import capsbleufonce from "../../assets/capsbleufonce.png"
@@ -14,6 +14,7 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        paddingBottom: props => props.isMobile ? 65 : 0,
     },
     container: {
         maxWidth: 600,
@@ -35,7 +36,8 @@ const useStyles = makeStyles({
 
 
 const Home = () => {
-    const classes = useStyles();
+    const isMobile = useMediaQuery('(max-width:600px)', { noSsr: true })
+    const classes = useStyles({ isMobile });
     const [currentBulle, setCurrentBulle] = useState(null);
     const [collapse, setCollapse] = useState(false);
     const [fade, setFade] = useState(false)
