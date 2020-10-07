@@ -140,21 +140,21 @@ const Home = () => {
     return (
         <div className={classes.root}>
             <div className={classes.container}>
+                <h1>BULLES DE PROUT</h1>
                 <Fade in={!fade} timeout={1000}>
                     <div>
-                        <h1>BULLES DE PROUT</h1>
                         {bulles.map((bulle, key) =>
 
                             <BubbleButton key={key} bulle={bulle} />
                         )}
                     </div>
                 </Fade>
-                <Fade in={collapse} timeout={500}>
+                <Collapse in={collapse} timeout={500}>
                     <div>
 
                         {currentBulle ? <Bulle bulle={currentBulle} collapse={collapse} handleBulleNav={handleBulleNav} /> : null}
                     </div>
-                </Fade>
+                </Collapse>
 
             </div>
         </div>
