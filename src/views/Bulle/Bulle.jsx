@@ -29,7 +29,7 @@ const Bulle = ({ bulle, handleBulleNav }) => {
             <YoutubePlayer videoId={videoId} />
             <div style={{ maxWidth: isMobile ? 280 : 800, paddingBottom: 16, textAlign: "left" }}>
                 {text.split("\n").map((line, key) => {
-                    return <p key={key}>{line}</p>
+                    return <p key={key} style={{ fontWeight: 300, color: 'grey' }}>{line}</p>
                 })}
             </div>
         </div>

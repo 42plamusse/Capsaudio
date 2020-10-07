@@ -33,6 +33,13 @@ html {
 
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
+@font-face {
+  font-family: 'Batang';
+  src: local('Batang'), url(./fonts/BATANG.ttf) format('truetype');
+}
+p {
+  font-family: Batang;
+}
 
 body {
   box-sizing: border-box;

@@ -52,7 +52,7 @@ const Home = () => {
             img: capsrouge,
             title: "Deux amours.",
             videoId: "K-2m2KgosVg",
-            text: "« Tu es mon histoire d’amour.\nLa fable qui vibre mes lèvres,\nLe conte qui me rend tout frêle, \nLa muse de ce poème sans doute.\nJe suis la comptine qui t’apaise, \nLa note qui te touche.\nJe suis la caresse qui t’emmène, \nPrès de moi, loin de tout.\nJe suis ton artiste.\nCelui qui te peint et te tartine, \nCelui qui te mange et te vernis.\nDe mon pinceau je suis tes traits,\nJe te contemple une fois finie. \nJe m’impose au creux de tes reins,\nTes lèvres dévoilent ce si joli sourire. \nTandis que nos âmes se croisent de bon matin,\nL’écho de ma voix se fait sentir : \n« Je suis ton histoire d’amour. » »"
+            text: "Tu es mon histoire d’amour. La fable qui vibre mes lèvres. Le conte qui me rend tout frêle,  la muse de ce poème sans doute. Je suis la comptine qui t’apaise, la note qui te touche. Je suis la caresse qui t’emmène, près de moi, loin de tout.\nJe suis ton artiste. Celui qui te peint et te tartine, celui qui te mange et te vernis. De mon pinceau je suis tes traits, je te contemple une fois finie. \nJe m’impose au creux de tes reins, tes lèvres dévoilent ce si joli sourire. Tandis que nos âmes se croisent de bon matin, l’écho de ma voix se fait sentir :\n« Je suis ton histoire d’amour. »"
         },
         {
             style: {
@@ -63,7 +63,7 @@ const Home = () => {
             img: capsbleu,
             title: "Hier.",
             videoId: "KRKjxO_WiOU",
-            text: "« J’ai cru t’apercevoir hier.\nCe n’était probablement pas toi, \nMais ca n’aurait rien changé.\nMes mains, traîtresses de mon hésitation, se tordaient déjà fébrilement.\nHier, Je t’avais presque oublié.\nDevrais-je m’approcher, tenter de t’arrêter ? \nNe serait-ce que te saluer ?\nLe moment serait-il gênant ?\nC’est absurde en y pensant.\nVoila un an, la gêne eu été de ne pas être à tes côtés.\nTon odeur allait-elle me déranger, ou bien au contraire réveiller en moi les passions mortes et les douleurs que je croyais éteintes avec elle.\nJ’ai fait demi tour.\nUne fois le voile tombé, là où les rêves s’échouent et où les éléphants se retrouvent pour mourir,\nJ’aurais voulu que tu m’écrives.\nUne seule fois.\nMême pour quelques lignes,\nJ’aurais voulu que tu m’éclaires.\nQu’enfin s’éteigne la lumière,\nMais je sais que de nous, c’est tout ce qu’il restera.\nL’attente d’une lettre que tu n’écriras pas.\nEt ce bout de toi, sur un drap, qui jamais ne partira. »"
+            text: "J’ai cru t’apercevoir hier. Ce n’était probablement pas toi, mais ça n’aurait rien changé. Mes mains, traîtresses de mon hésitation, se tordaient déjà fébrilement. Hier, Je t’avais presque oublié. Devrais-je m’approcher, tenter de t’arrêter ? Ne serait-ce que te saluer ? Le moment serait-il gênant ? C’est absurde en y pensant. Voila un an, la gêne eu été de ne pas être à tes côtés. Ton odeur allait-elle me déranger, ou bien au contraire réveiller en moi les passions mortes et les douleurs que je croyais éteintes avec elle. J’ai fait demi tour. Une fois le voile tombé, là où les rêves s’échouent et où les éléphants se retrouvent pour mourir, j’aurais voulu que tu m’écrives.\nUne seule fois. Même pour quelques lignes, j’aurais voulu que tu m’éclaires. Qu’enfin s’éteigne la lumière. Mais je sais que de nous, c’est tout ce qu’il restera. L’attente d’une lettre que tu n’écriras pas. Et ce bout de toi, sur un drap, qui jamais ne partira."
         },
         {
             style: {

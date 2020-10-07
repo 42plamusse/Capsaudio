@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './views/App/App';
 import * as serviceWorker from './serviceWorker';
+import './fonts/BATANG.ttf'
 
 ReactDOM.render(
   <React.StrictMode>
