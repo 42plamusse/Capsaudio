@@ -25,11 +25,11 @@ const Bulle = ({ bulle, handleBulleNav }) => {
             <IconButton onClick={() => { handleBulleNav(null) }} className={classes.close}>
                 <CloseIcon />
             </IconButton>
-            <h2>{title}</h2>
             <YoutubePlayer videoId={videoId} />
+            <h2 >{title}</h2>
             <div style={{ maxWidth: isMobile ? 280 : 800, paddingBottom: 16, textAlign: "left" }}>
                 {text.split("\n").map((line, key) => {
-                    return <p key={key} style={{ fontWeight: 300, color: 'grey' }}>{line}</p>
+                    return <p key={key} style={{ fontWeight: 300, color: "grey" }}>{line}</p>
                 })}
             </div>
         </div>

@@ -1,9 +1,16 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import { useMediaQuery } from "@material-ui/core"
+import { useMediaQuery, makeStyles } from "@material-ui/core"
+
+const useStyles = makeStyles({
+    root: {
+        height: props => props.isMobile ? 158 : 450,
+    }
+})
 
 const YoutubePlayer = ({ videoId }) => {
     const isMobile = useMediaQuery('(max-width:600px)', { noSsr: true })
+    const classes = useStyles({ isMobile });
     const opts = {
         height: isMobile ? '158' : "450",
         width: isMobile ? '280' : "800",
@@ -22,8 +29,8 @@ const YoutubePlayer = ({ videoId }) => {
         event.target.pauseVideo();
     }
     return (
-        <div style={{ height: isMobile ? '280' : "400", padding: "16px 0px 16px 0px" }}>
-
+        // <div style={{ height: isMobile ? '300' : "470", padding: "16px 0px 16px 0px" }}>
+        <div className={classes.root}>
             <YouTube videoId={videoId} opts={opts} onReady={_onReady} />
         </div>
     );
