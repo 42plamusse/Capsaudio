@@ -28,6 +28,21 @@ $max_width: 1000px;
 $min_font: 16px;
 $max_font: 22px;
 
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: calc(var(--vh, 1vh) * 100);
+  padding: 1rem;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
 html {
   background-color: white;
   height: -webkit-fill-available;
@@ -41,21 +56,6 @@ p {
   font-family: Batang;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-  padding: 1rem;
-  margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-}
 
 h1, h2 {
   font-weight: 400;
