@@ -11,6 +11,7 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     close: {
+        padding: 16,
         alignSelf: 'flex-start'
     }
 })

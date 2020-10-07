@@ -133,7 +133,7 @@ const Home = () => {
         }
         else {
             setCollapse((prev) => !prev);
-            setTimeout(() => (setCurrentBulle(null), setFade((prev) => !prev)), 500);
+            setTimeout(() => (setCurrentBulle(null), setFade((prev) => !prev)), 2000);
         }
     }
 
@@ -149,7 +149,7 @@ const Home = () => {
                         )}
                     </div>
                 </Fade>
-                <Collapse in={collapse} timeout={500}>
+                <Collapse in={collapse} timeout={2000}>
                     <div>
 
                         {currentBulle ? <Bulle bulle={currentBulle} collapse={collapse} handleBulleNav={handleBulleNav} /> : null}
