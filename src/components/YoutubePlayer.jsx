@@ -5,8 +5,8 @@ import { useMediaQuery } from "@material-ui/core"
 const YoutubePlayer = ({ videoId }) => {
     const isMobile = useMediaQuery('(max-width:600px)', { noSsr: true })
     const opts = {
-        height: isMobile ? '158' : "400",
-        width: isMobile ? '280' : "711",
+        height: isMobile ? '158' : "450",
+        width: isMobile ? '280' : "800",
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             color: "white",
