@@ -27,32 +27,30 @@ function App() {
   const classes = useStyles();
   return (
     <Router>
-      <div className={classes.App}>
-        {/* <AppBar position="fixed" style={{ background: 'white' }}>
+      {/* <AppBar position="fixed" style={{ background: 'white' }}>
           <Toolbar style={{ color: 'white' }} >
             <Button to={{ pathname: "/" }} component={Link} color="primary">Capsaudio</Button>
           </Toolbar>
           <Drawer></Drawer>
         </AppBar> */}
-        <Switch>
-          <Route exact path="/" >
-            <Home />
-          </Route>
-          <Route path="/bulles/:id">
-            <Bulle />
-          </Route>
-          <Route path="/about" >
-            <About />
-          </Route>
-          <Route path="/contact" >
-            <Contact />
-          </Route>
-          <Route path="*" >
-            <NotFound />
-          </Route>
+      <Switch>
+        <Route exact path="/" >
+          <Home />
+        </Route>
+        <Route path="/bulles/:id">
+          <Bulle />
+        </Route>
+        <Route path="/about" >
+          <About />
+        </Route>
+        <Route path="/contact" >
+          <Contact />
+        </Route>
+        <Route path="*" >
+          <NotFound />
+        </Route>
 
-        </Switch>
-      </div>
+      </Switch>
     </Router>
   );
 }

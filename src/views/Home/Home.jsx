@@ -9,12 +9,13 @@ import Bulle from '../Bulle/Bulle';
 
 const useStyles = makeStyles({
     root: {
+        flex: '1',
         minHeight: "100%",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: props => props.isMobile ? 65 : 0,
+        // paddingBottom: props => props.isMobile ? 65 : 0,
     },
     container: {
         maxWidth: 600,

@@ -30,7 +30,7 @@ $max_font: 22px;
 
 html {
   background-color: white;
-
+  height: -webkit-fill-available;
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 @font-face {
@@ -42,8 +42,11 @@ p {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   padding: 1rem;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -64,6 +67,7 @@ code {
     monospace;
 }
 #root {
-  // box-sizing: border-box;
-  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
