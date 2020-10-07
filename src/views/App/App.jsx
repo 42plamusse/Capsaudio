@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   App: {
     boxSizing: 'border-box',
     height: "100%",
-    paddingTop: "2rem",
+    // paddingTop: "2rem",
     // textAlign: 'center'
   },
 
@@ -28,12 +28,12 @@ function App() {
   return (
     <Router>
       <div className={classes.App}>
-        <AppBar position="fixed" style={{ background: 'white' }}>
+        {/* <AppBar position="fixed" style={{ background: 'white' }}>
           <Toolbar style={{ color: 'white' }} >
             <Button to={{ pathname: "/" }} component={Link} color="primary">Capsaudio</Button>
           </Toolbar>
           <Drawer></Drawer>
-        </AppBar>
+        </AppBar> */}
         <Switch>
           <Route exact path="/" >
             <Home />

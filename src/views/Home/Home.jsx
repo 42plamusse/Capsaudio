@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import { Button, makeStyles, Collapse } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Button, makeStyles, Collapse, Fade } from '@material-ui/core';
 import capsrouge from "../../assets/capsrouge.png"
 import capsbleu from "../../assets/capsbleu.png"
 import capsbleufonce from "../../assets/capsbleufonce.png"
 import capsjaune from "../../assets/capsjaune.png"
 import capsnoir from '../../assets/capsnoir.png'
 import Bulle from '../Bulle/Bulle';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
-
-
 
 const useStyles = makeStyles({
     root: {
@@ -26,13 +22,26 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    bulleButton: {
+        borderRadius: 360,
+        position: "absolute",
+        boxShadow: "2px 2px 8px",
+        padding: 0,
+        margin: 0,
+        transition: "top 2s, left 2s"
+        // top: `${Math.random() * 100}vh`,
+        // left: `${Math.random() * 100}vw`,
     }
 })
 
 
 const Home = () => {
     const classes = useStyles();
-    const [bulle, setBulle] = useState(null);
+    const [currentBulle, setCurrentBulle] = useState(null);
+    const [collapse, setCollapse] = useState(false);
+    const [fade, setFade] = useState(true)
+    const [bullesButtons, setBullesButtons] = useState([]);
 
     const bulles = [
         {
@@ -67,39 +76,71 @@ const Home = () => {
         }
     ]
 
-    const BubbleButton = ({ bulle }) => {
+    const populateBullesButton = () => {
+        const buttons = bulles.map((bulle, key) =>
+            <BubbleButton key={key} bulle={bulle} />
+        );
+        setBullesButtons(buttons);
+    }
+
+    useEffect(() => {
+        populateBullesButton();
+    }, [])
+
+
+    const randomBulleStyle = () => {
+        const minSize = 8;
+        const multSize = 8;
+        const bulleSize = Math.random() * multSize + minSize;
+        const leftPos = Math.random() * (100 - bulleSize);
+        const topPos = Math.random() * (100 - bulleSize);
+
         return (
-            <Button to="/" style={{ borderRadius: 100 }} onClick={() => handleBulleNav({ bulle })}><img style={{ height: "15vh" }} src={bulle.img}></img></Button>
+            {
+                height: `${bulleSize}vh`,
+                top: `${topPos}vh`,
+                left: `${leftPos}vw`
+            }
         );
     }
+    const BubbleButton = ({ bulle }) => {
+        const bulleStyle = randomBulleStyle();
+        return (
+            <Button className={classes.bulleButton} style={{ top: bulleStyle.top, left: bulleStyle.left }}
+                onClick={() => handleBulleNav({ bulle })}><img style={{ height: bulleStyle.height, opacity: currentBulle ? '0.8' : "0.95" }} src={bulle.img}></img></Button>
+        );
+    }
+
     const handleBulleNav = ({ bulle }) => {
-        setBulle(bulle);
+        if (currentBulle) setCollapse((prev) => !prev);
+        setFade((prev) => !prev);
+        setTimeout(() => (setCurrentBulle(bulle), setCollapse((prev) => !prev), setFade((prev) => !prev)), 800);
     }
     return (
         <div className={classes.root}>
             <div className={classes.container}>
-                <h1 style={{ fontWeight: 400, letterSpacing: "0.2vh" }}>BULLES DE PROUT</h1>
-                {/* <CarouselProvider naturalSlideHeight={200} naturalSlideWidth={200} totalSlides={bulles.length}>
-                    <Slider>
-                        {bulles.map((bulle, index) =>
-                            <Slide onClick={() => handleBulleNav({ bulle })} key={index} index={index}>
-                                <img style={{ height: "15vh" }} src={bulle.img}></img>
-                            </Slide>
+                <h1>BULLES DE PROUT</h1>
+
+                <Fade in={fade} timeout={300}>
+
+                    <div>
+                        {bulles.map((bulle, key) =>
+
+                            <BubbleButton key={key} bulle={bulle} />
                         )}
-                    </Slider>
-                    <ButtonBack>Back</ButtonBack>
-                    <ButtonNext>Next</ButtonNext>
-                </CarouselProvider> */}
-                <div>
+                    </div>
+                </Fade>
+
+                {/* <div>
                     <BubbleButton bulle={bulles[0]} picture={capsrouge} />
                     <BubbleButton bulle={bulles[1]} picture={capsbleu} />
                     <BubbleButton bulle={bulles[2]} picture={capsbleufonce} />
                     <BubbleButton bulle={bulles[3]} picture={capsjaune} />
                     <BubbleButton bulle={bulles[4]} picture={capsnoir} />
-                </div>
-                <Collapse in={!!bulle} timeout={1500}>
+                </div> */}
+                <Collapse in={collapse} timeout={800}>
                     {
-                        bulle ? <Bulle bulle={bulle} /> : null
+                        currentBulle ? <Bulle bulle={currentBulle} /> : null
                     }
                 </Collapse>
 
