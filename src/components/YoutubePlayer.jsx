@@ -5,6 +5,7 @@ import { useMediaQuery, makeStyles } from "@material-ui/core"
 const useStyles = makeStyles({
     root: {
         height: props => props.isMobile ? 158 : 450,
+        // height: 600,
     }
 })
 

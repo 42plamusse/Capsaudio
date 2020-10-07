@@ -24,14 +24,12 @@ const useStyles = makeStyles({
         alignItems: 'center',
     },
     bulleButton: {
+        cursor: "pointer",
         borderRadius: 360,
         position: "absolute",
-        boxShadow: "2px 2px 8px",
+        boxShadow: "2px 2px 5px",
         padding: 0,
         margin: 0,
-        transition: "top 2s, left 2s"
-        // top: `${Math.random() * 100}vh`,
-        // left: `${Math.random() * 100}vw`,
     }
 })
 
@@ -45,7 +43,7 @@ const Home = () => {
     const bulles = [
         {
             style: {
-                height: "16vh",
+                size: "16vh",
                 top: "16vh",
                 left: "30vw",
             },
@@ -56,7 +54,7 @@ const Home = () => {
         },
         {
             style: {
-                height: "12vh",
+                size: "12vh",
                 top: "10vh",
                 left: "70vw",
             },
@@ -67,7 +65,7 @@ const Home = () => {
         },
         {
             style: {
-                height: "14vh",
+                size: "14vh",
                 top: "60vh",
                 left: "24vw",
 
@@ -79,7 +77,7 @@ const Home = () => {
         },
         {
             style: {
-                height: "13vh",
+                size: "13vh",
                 top: "80vh",
                 left: "5vw",
             },
@@ -90,7 +88,7 @@ const Home = () => {
         },
         {
             style: {
-                height: "17vh",
+                size: "17vh",
                 top: "70vh",
                 left: "57vw",
             },
@@ -121,15 +119,17 @@ const Home = () => {
     const BubbleButton = ({ bulle }) => {
         const { style, img } = bulle;
         return (
-            <Button className={classes.bulleButton} style={{ top: style.top, left: style.left }}
-                onClick={() => handleBulleNav(bulle)}><img style={{ height: style.height, opacity: currentBulle ? '0.8' : "0.95" }} src={img}></img></Button>
+            <div className={classes.bulleButton} style={{ top: style.top, left: style.left, height: style.size, width: style.size }}
+                onClick={() => handleBulleNav(bulle)}>
+                <img style={{ height: style.size, opacity: currentBulle ? '0.8' : "0.95" }} src={img}></img>
+            </div>
         );
     }
 
     const handleBulleNav = (bulle) => {
         if (bulle) {
             setFade((prev) => !prev);
-            setTimeout(() => (setCurrentBulle(bulle), setCollapse((prev) => !prev)), 1000);
+            setTimeout(() => (setCurrentBulle(bulle), setCollapse((prev) => !prev)), 500);
         }
         else {
             setCollapse((prev) => !prev);
@@ -141,7 +141,7 @@ const Home = () => {
         <div className={classes.root}>
             <div className={classes.container}>
                 <h1>BULLES DE PROUT</h1>
-                <Fade in={!fade} timeout={1000}>
+                <Fade in={!fade} timeout={500}>
                     <div>
                         {bulles.map((bulle, key) =>
 
