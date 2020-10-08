@@ -28,7 +28,7 @@ const useStyles = makeStyles({
         cursor: "pointer",
         borderRadius: 360,
         position: "absolute",
-        boxShadow: "2px 2px 5px",
+        boxShadow: "2px 2px 8px",
         padding: 0,
         margin: 0,
     }
