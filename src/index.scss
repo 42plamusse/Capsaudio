@@ -50,7 +50,7 @@ html {
 }
 @font-face {
   font-family: 'Batang';
-  src: local('Batang'), url(./fonts/BATANG.ttf) format('truetype');
+  src: local('Batang'), url("./fonts/BATANG.ttf") format('truetype');
 }
 p {
   font-family: Batang;

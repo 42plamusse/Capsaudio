@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, makeStyles, Collapse, Fade, Grow, fade, useMediaQuery } from '@material-ui/core';
+import React, { useState } from 'react';
+import { makeStyles, Collapse, Fade, useMediaQuery } from '@material-ui/core';
 import capsrouge from "../../assets/capsrouge.png"
 import capsbleu from "../../assets/capsbleu.png"
 import capsbleufonce from "../../assets/capsbleufonce.png"
@@ -15,7 +15,6 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        // paddingBottom: props => props.isMobile ? 65 : 0,
     },
     container: {
         maxWidth: 600,
@@ -124,7 +123,7 @@ const Home = () => {
         return (
             <div className={classes.bulleButton} style={{ top: style.top, left: style.left, height: style.size, width: style.size }}
                 onClick={() => handleBulleNav(bulle)}>
-                <img style={{ height: style.size, opacity: currentBulle ? '0.8' : "0.95" }} src={img}></img>
+                <img style={{ height: style.size, opacity: "0.95" }} alt="BULLE" src={img}></img>
             </div>
         );
     }
@@ -132,11 +131,17 @@ const Home = () => {
     const handleBulleNav = (bulle) => {
         if (bulle) {
             setFade((prev) => !prev);
-            setTimeout(() => (setCurrentBulle(bulle), setCollapse((prev) => !prev)), 500);
+            setTimeout(() => {
+                return (setCurrentBulle(bulle),
+                    setCollapse((prev) => !prev))
+            }, 400);
         }
         else {
             setCollapse((prev) => !prev);
-            setTimeout(() => (setCurrentBulle(null), setFade((prev) => !prev)), 2000);
+            setTimeout(() => {
+                return (setCurrentBulle(null),
+                    setFade((prev) => !prev))
+            }, 2000);
         }
     }
 
@@ -144,7 +149,7 @@ const Home = () => {
         <div className={classes.root}>
             <div className={classes.container}>
                 <h1>BULLES DE PROUT</h1>
-                <Fade in={!fade} timeout={500}>
+                <Fade in={!fade} timeout={400}>
                     <div>
                         {bulles.map((bulle, key) =>
 
@@ -152,7 +157,7 @@ const Home = () => {
                         )}
                     </div>
                 </Fade>
-                <Collapse in={collapse} timeout={2000}>
+                <Collapse in={collapse} timeout={2300}>
                     <div>
 
                         {currentBulle ? <Bulle bulle={currentBulle} collapse={collapse} handleBulleNav={handleBulleNav} /> : null}
