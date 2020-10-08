@@ -67,9 +67,9 @@ const Home = () => {
         },
         {
             style: {
-                size: "14vh",
+                size: "18vh",
                 top: "60vh",
-                left: "24vw",
+                left: "30vw",
 
             },
             img: capsbleufonce,
@@ -79,8 +79,8 @@ const Home = () => {
         },
         {
             style: {
-                size: "13vh",
-                top: "80vh",
+                size: "10vh",
+                top: "60vh",
                 left: "5vw",
             },
             img: capsjaune,
@@ -90,9 +90,9 @@ const Home = () => {
         },
         {
             style: {
-                size: "17vh",
+                size: "16vh",
                 top: "70vh",
-                left: "57vw",
+                left: "68vw",
             },
             img: capsnoir,
             title: "Le mal.",
