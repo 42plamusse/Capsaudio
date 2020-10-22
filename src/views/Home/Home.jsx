@@ -6,6 +6,7 @@ import capsbleuclair from "../../assets/capsbleuclair.png"
 import capsbleufonce from "../../assets/capsbleufonce.png"
 import capsjaune from "../../assets/capsjaune.png"
 import capsnoir from '../../assets/capsnoir.png'
+import capsvert from '../../assets/capsvert.png'
 import Bulle from '../Bulle/Bulle';
 
 const useStyles = makeStyles({
@@ -41,6 +42,7 @@ const Home = () => {
     const classes = useStyles({ isMobile });
     const [currentBulle, setCurrentBulle] = useState(null);
     const [collapse, setCollapse] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [fade, setFade] = useState(false)
 
     const bulles = [
@@ -81,7 +83,7 @@ const Home = () => {
         {
             style: {
                 size: "16vh",
-                top: "48vh",
+                top: "56vh",
                 left: "4vw",
             },
             img: capsjaune,
@@ -93,7 +95,7 @@ const Home = () => {
             style: {
                 size: "18vh",
                 top: "72vh",
-                left: "54vw",
+                left: "60vw",
             },
             img: capsnoir,
             title: "Le mal.",
@@ -109,7 +111,18 @@ const Home = () => {
             img: capsbleuclair,
             title: "L'air.",
             videoId: "fPaIYEL3XaM",
-            text: "Inodore, Tu me sens sans me voir. Incolore, tu me vois sans me sentir.\nInvisible, je suis partout et nul part. Dedans, dehors, à gauche à droite. L’air de rien, je passe ma vie à violer des corps, pénétrant jusqu’à la veine qui les maintien en vie. Caressant où je ne peux rentrer, je me vois fouetter des hêtres faisant rougir l’automne.\nÔ Pauvres masochistes dont l’acte consenti est teinté de résiliation. Deux choix vous sont proposés, vivre ou mourir. L’ultimatum divin\nJe joui de la vie, je suis l’haleine de dieu, l’inspiration de l’artiste et de son dernier soupir.. J’aspire l’esprit des séraphins chevauchant les nuages de mon doux Zéphyr.\nJe ne suis qu’un mirage de l’existence. Éphémère composante de quelques millions d’années. Que suis-je sans ma violence \nRien qu’un passage anodin de vos moments oubliés."
+            text: "Inodore, Tu me sens sans me voir. Incolore, tu me vois sans me sentir.\nInvisible, je suis partout et nul part. Dedans, dehors, à gauche à droite. L’air de rien, je passe ma vie à toucher des corps, pénétrant jusqu’à la veine qui les maintien en vie. Caressant où je ne peux rentrer, je me vois fouetter des hêtres faisant rougir l’automne.\nÔ Pauvres masochistes dont l’acte consenti est teinté de résiliation. Deux choix vous sont proposés, vivre ou mourir. L’ultimatum divin\nJe joui de la vie, je suis l’haleine de dieu, l’inspiration de l’artiste et de son dernier soupir.. J’aspire l’esprit des séraphins chevauchant les nuages de mon doux Zéphyr.\nJe ne suis qu’un mirage de l’existence. Éphémère composante de quelques millions d’années. Que suis-je sans ma violence \nRien qu’un passage anodin de vos moments oubliés."
+        },
+        {
+            style: {
+                size: "16vh",
+                top: "42vh",
+                left: "58vw",
+            },
+            img: capsvert,
+            title: "Requiem d’un escargot pour un humain.",
+            videoId: "QfGeHRE2h34",
+            text: "Tu files sur moi à la vitesse d’une étoile. Vision fugitive de mes yeux aveuglés. Je te sens que lorsque tu m’écrases, ma narine souffle ta tristesse. « ShhKrrk » est le son de mon adieu. « Merde ! » est le mot de ton respect. Baveuse est l’arrière de ta basket, heureuse sera la grive de ton jardin.\nJe n’ai pas de haine contre toi humain, je n’ai pas de peine, ni la peur du temps. Je suis victime de ma lenteur. J’étais là au mauvais moment. Une dernière fois je laisse ma trace, la coquille comme épitaphe : « Ici gît un aventurier qui se cherchait. Patient de se trouver, soif de liberté. »\nMe voici dans le paradis des phytophages, bavant avec des escargots de tout âge, petits, gros, tous chronophage, jusqu’à ce que « shhkrrk »."
         }
     ]
 
@@ -135,7 +148,7 @@ const Home = () => {
         return (
             <div className={classes.bulleButton} style={{ top: style.top, left: style.left, height: style.size, width: style.size }}
                 onClick={() => handleBulleNav(bulle)}>
-                <img style={{ height: style.size, opacity: "0.95" }} alt="BULLE" src={img}></img>
+                <img style={{ height: style.size, opacity: "0.95" }} alt="BULLE" src={img} onLoad={() => { setLoading(false) }}></img>
             </div>
         );
     }
@@ -159,24 +172,29 @@ const Home = () => {
 
     return (
         <div className={classes.root}>
-            <div className={classes.container}>
-                <h1>BULLES DE PROUT</h1>
-                <Fade in={!fade} timeout={400}>
-                    <div>
-                        {bulles.map((bulle, key) =>
 
-                            <BubbleButton key={key} bulle={bulle} />
-                        )}
-                    </div>
-                </Fade>
-                <Collapse in={collapse} timeout={2300}>
-                    <div>
+            <Fade in={!loading} timeout={400}>
+                <div style={{ display: loading ? "none" : "flex" }}
+                    className={classes.container}>
 
-                        {currentBulle ? <Bulle bulle={currentBulle} collapse={collapse} handleBulleNav={handleBulleNav} /> : null}
-                    </div>
-                </Collapse>
+                    <h1>BULLES DE PROUT</h1>
+                    <Fade in={!fade} timeout={400}>
+                        <div>
+                            {bulles.map((bulle, key) =>
 
-            </div>
+                                <BubbleButton key={key} bulle={bulle} />
+                            )}
+                        </div>
+                    </Fade>
+                    <Collapse in={collapse} timeout={2300}>
+                        <div>
+
+                            {currentBulle ? <Bulle bulle={currentBulle} collapse={collapse} handleBulleNav={handleBulleNav} /> : null}
+                        </div>
+                    </Collapse>
+
+                </div>
+            </Fade>
         </div>
     );
 }

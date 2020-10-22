@@ -23,15 +23,6 @@ function App() {
         <Route exact path="/" >
           <Home />
         </Route>
-        <Route path="/bulles/:id">
-          <Bulle />
-        </Route>
-        <Route path="/about" >
-          <About />
-        </Route>
-        <Route path="/contact" >
-          <Contact />
-        </Route>
         <Route path="*" >
           <NotFound />
         </Route>

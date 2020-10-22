@@ -12,6 +12,7 @@
     "pure-react-carousel": "^1.27.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-loader-spinner": "^3.1.14",
     "react-player": "^2.6.2",
     "react-responsive-carousel": "^3.2.10",
     "react-router-dom": "^5.2.0",
