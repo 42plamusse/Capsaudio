@@ -19,12 +19,14 @@ const useStyles = makeStyles({
         alignItems: 'center',
     },
     container: {
-        maxWidth: 600,
+        // maxWidth: 600,
+        minHeight: "20vh",
         textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
+        // backgroundColor: 'red'
     },
     bulleButton: {
         cursor: "pointer",
@@ -43,7 +45,8 @@ const Home = () => {
     const [currentBulle, setCurrentBulle] = useState(null);
     const [collapse, setCollapse] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [fade, setFade] = useState(false)
+    const [fade, setFade] = useState(false);
+    const [title, setTitle] = useState("");
 
     const bulles = [
         {
@@ -66,7 +69,7 @@ const Home = () => {
             img: capsbleu,
             title: "Hier.",
             videoId: "iOe-YjSeyFM",
-            text: "J’ai cru t’apercevoir hier. Ce n’était probablement pas toi, mais ça n’aurait rien changé. Mes mains, traîtresses de mon hésitation, se tordaient déjà fébrilement. Hier, Je t’avais presque oublié.\nDevrais-je m’approcher, tenter de t’arrêter ? Ne serait-ce que te saluer ? Le moment serait-il gênant ? C’est absurde en y pensant. Voila un an, la gêne eu été de ne pas être à tes côtés. Ton odeur allait-elle me déranger, ou bien au contraire réveiller en moi les passions mortes et les douleurs que je croyais éteintes avec elle. J’ai fait demi tour\nUne fois le voile tombé, là où les rêves s’échouent et où les éléphants se retrouvent pour mourir, j’aurais voulu que tu m’écrives. Une seule fois. Même pour quelques lignes, j’aurais voulu que tu m’éclaires. Qu’enfin s’éteigne la lumière. Mais je sais que de nous, c’est tout ce qu’il restera. L’attente d’une lettre que tu n’écriras pas. Et ce bout de toi, sur un drap, qui jamais ne partira."
+            text: "J'ai cru t'apercevoir hier.\nCe n'était probablement pas toi, \nMais ca n'aurait rien changé.\nMes mains, traîtresses de mon hésitation, se tordaient déjà fébrilement.\nHier, Je t'avais presque oublié.\nDevrais-je m'approcher, tenter de t'arrêter ? \nNe serait-ce que te saluer ?\nLe moment serait-il gênant ?\nC'est absurde en y pensant.\nVoilà un an, la gêne eu été de ne pas être à tes côtés.\nTon odeur allait-elle me déranger, ou bien au contraire réveiller en moi les passions mortes et les douleurs que je croyais éteintes avec elle.\nJ'ai fait demi-tour.\nUne fois le voile tombé, là où les rêves s'échouent et ou les éléphants se retrouvent pour mourir,\nj'aurais voulu que tu m'écrives.\nUne seule fois.\nMême pour quelques lignes,\nJ'aurais voulu que tu m'éclaires.\nQu'enfin s'éteigne la lumière,\nMais je sais que de nous, c'est tout ce qu'il restera.\nL'attente d'une lettre que tu n'écriras pas.\nEt ce bout de toi, sur un drap, qui jamais ne partira."
         },
         {
             style: {
@@ -105,8 +108,8 @@ const Home = () => {
         {
             style: {
                 size: "20vh",
-                top: "20vh",
-                left: "32vw",
+                top: "42vh",
+
             },
             img: capsbleuclair,
             title: "L'air.",
@@ -116,8 +119,9 @@ const Home = () => {
         {
             style: {
                 size: "16vh",
-                top: "42vh",
                 left: "58vw",
+                top: "20vh",
+                left: "32vw",
             },
             img: capsvert,
             title: "Requiem d’un escargot pour un humain.",
@@ -146,9 +150,19 @@ const Home = () => {
     const BubbleButton = ({ bulle }) => {
         const { style, img } = bulle;
         return (
-            <div className={classes.bulleButton} style={{ top: style.top, left: style.left, height: style.size, width: style.size }}
+            <div
+                onMouseOver={() => { setTitle(bulle.title) }}
+                // onMouseOut={() => { setTitle("") }}
+                className={classes.bulleButton}
+                style={{
+                    top: style.top,
+                    left: style.left,
+                    height: style.size,
+                    width: style.size,
+                }}
                 onClick={() => handleBulleNav(bulle)}>
-                <img style={{ height: style.size, opacity: "0.95" }} alt="BULLE" src={img} onLoad={() => { setLoading(false) }}></img>
+                <img
+                    style={{ height: style.size, opacity: "0.95" }} alt="BULLE" src={img} onLoad={() => { setLoading(false) }}></img>
             </div>
         );
     }
@@ -178,6 +192,9 @@ const Home = () => {
                     className={classes.container}>
 
                     <h1 style={{ zIndex: "10", fontWeight: 600, pointerEvents: "none" }}>BULLES DE PROUT</h1>
+
+                    {title ? <h2 style={{ zIndex: "10", pointerEvents: "none" }}>{title}</h2> : null}
+
                     <Fade in={!fade} timeout={400}>
                         <div>
                             {bulles.map((bulle, key) =>

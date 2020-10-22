@@ -25,7 +25,7 @@ const Bulle = ({ bulle, handleBulleNav }) => {
                 <CloseIcon />
             </IconButton>
             <YoutubePlayer videoId={videoId} />
-            <h2 >{title}</h2>
+            {/* <h2 >{title}</h2> */}
             <div style={{ textAlign: "left" }}>
                 {text.split("\n").map((line, key) => {
                     return <p key={key} style={{ fontWeight: 300, color: "grey" }}>{line}</p>
