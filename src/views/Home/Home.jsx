@@ -177,7 +177,7 @@ const Home = () => {
                 <div style={{ display: loading ? "none" : "flex" }}
                     className={classes.container}>
 
-                    <h1>BULLES DE PROUT</h1>
+                    <h1 style={{ zIndex: "10", fontWeight: 600, pointerEvents: "none" }}>BULLES DE PROUT</h1>
                     <Fade in={!fade} timeout={400}>
                         <div>
                             {bulles.map((bulle, key) =>
