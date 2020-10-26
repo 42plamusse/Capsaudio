@@ -5,10 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import Home from '../Home/Home';
-import About from '../About/About';
-import Contact from '../Contact/Contact';
 import NotFound from '../NotFound./NotFound';
-import Bulle from '../Bulle/Bulle';
 
 function App() {
   return (

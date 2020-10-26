@@ -58,6 +58,9 @@ p {
   font-family: Batang;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
 
 h1, h2 {
   font-weight: 400;

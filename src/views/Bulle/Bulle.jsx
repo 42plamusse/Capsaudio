@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 const Bulle = ({ bulle, handleBulleNav }) => {
     const classes = useStyles();
     if (!bulle) return (<h1>*POP* fit la bulle.</h1>)
-    const { videoId, text, title } = bulle;
+    const { videoId, text } = bulle;
     return (
         <div className={classes.root}>
             <IconButton onClick={() => { handleBulleNav(null) }} className={classes.close}>

@@ -7,6 +7,7 @@ import capsbleufonce from "../../assets/capsbleufonce.png"
 import capsjaune from "../../assets/capsjaune.png"
 import capsnoir from '../../assets/capsnoir.png'
 import capsvert from '../../assets/capsvert.png'
+import capsviolet from '../../assets/capsviolet.png'
 import Bulle from '../Bulle/Bulle';
 
 const useStyles = makeStyles({
@@ -19,7 +20,7 @@ const useStyles = makeStyles({
         alignItems: 'center',
     },
     container: {
-        // maxWidth: 600,
+        maxWidth: 600,
         minHeight: "20vh",
         textAlign: 'center',
         display: 'flex',
@@ -108,7 +109,9 @@ const Home = () => {
         {
             style: {
                 size: "20vh",
-                top: "42vh",
+                top: "50vh",
+                left: "58vw",
+
 
             },
             img: capsbleuclair,
@@ -119,14 +122,24 @@ const Home = () => {
         {
             style: {
                 size: "16vh",
-                left: "58vw",
-                top: "20vh",
+                top: "18vh",
                 left: "32vw",
             },
             img: capsvert,
             title: "Requiem d’un escargot pour un humain.",
             videoId: "QfGeHRE2h34",
             text: "Tu files sur moi à la vitesse d’une étoile. Vision fugitive de mes yeux aveuglés. Je te sens que lorsque tu m’écrases, ma narine souffle ta tristesse. « ShhKrrk » est le son de mon adieu. « Merde ! » est le mot de ton respect. Baveuse est l’arrière de ta basket, heureuse sera la grive de ton jardin.\nJe n’ai pas de haine contre toi humain, je n’ai pas de peine, ni la peur du temps. Je suis victime de ma lenteur. J’étais là au mauvais moment. Une dernière fois je laisse ma trace, la coquille comme épitaphe : « Ici gît un aventurier qui se cherchait. Patient de se trouver, soif de liberté. »\nMe voici dans le paradis des phytophages, bavant avec des escargots de tout âge, petits, gros, tous chronophage, jusqu’à ce que « shhkrrk »."
+        },
+        {
+            style: {
+                size: "13vh",
+                top: "12vh",
+                left: "45vw",
+            },
+            img: capsviolet,
+            title: "Le vendeur de recettes.",
+            videoId: "Ypx8ulWVdV0",
+            text: "Bonjoir caveux et cavèsses,\nProduit de notre quotidien, le cafard saura aiguiller vos papilles vers les recoins les plus sombres de votre plaisir. Véritable rose des vents du bonheur, ce cancrelat se consomme vivant. Rien de plus délicieux que de sentir son cœur nous battre l’oesophage.\nUne bonne blatte s’évalue à deux phalanges. Plus petit, il sera trop croquant, plus gros, un rat d’un mois sera plus apprécié. \nDe vos doigts crochus, pincez lui légèrement ses côtes pour empêcher quelque action infructueuse et détachez une à une ses belles pattes au poil dru. Ses billes noires vous regarderont impuissant, faites lui un beau sourire.\nConcernant les ailes, deux écoles :\nPour les plus sadiques, une simple entaille au centre suffit. Le fardca aura beau taper la fréquence qu’il souhaite, il ne fera que balayer à sa porte. Pour ceux qui ont les chicots fatigués, l’écart de paradis à chaque briques, arrachez-les et servez-vous en fin de déguste.\nLe voilà dans sa plus belle forme, celle d’un indésirable tronc, prêt à être servit. \nPour accompagner ce snack, rien de mieux qu’une sauce maison :\nRécupérez vos fins de poussières.\nÀ l’aide d’une pipette, prélevez 1 centilitre d’eau stagnante et mélangez le tout avec un clou dans un récipient oxydé.\nDernier conseil, n’hésitez pas à jouer avec tout le long. Un taux de stress élevé avant le croc raffermi sa chair. »\nLa porte s’ouvre, une lumière intense vient éclairer le stand aveuglant les petites bêtes. Le vieil homme attrape le cuistot et crie à sa femme : « Ce soir c’est moi qui cuisine, j’ai une bonne recette. »"
         }
     ]
 
@@ -160,7 +173,9 @@ const Home = () => {
                     height: style.size,
                     width: style.size,
                 }}
-                onClick={() => handleBulleNav(bulle)}>
+                onClick={() => handleBulleNav(bulle)}
+                onTouchStart={() => handleBulleNav(bulle)} // Doesnt work on local host mobile
+            >
                 <img
                     style={{ height: style.size, opacity: "0.95" }} alt="BULLE" src={img} onLoad={() => { setLoading(false) }}></img>
             </div>
@@ -178,8 +193,9 @@ const Home = () => {
         else {
             setCollapse((prev) => !prev);
             setTimeout(() => {
-                return (setCurrentBulle(null),
-                    setFade((prev) => !prev))
+                setCurrentBulle(null)
+                setFade((prev) => !prev)
+                setTitle("")
             }, 2000);
         }
     }
